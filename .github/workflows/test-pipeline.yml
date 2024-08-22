@@ -1,27 +1,19 @@
 # .github/workflows/test-pipeline.yml
-name: Test Pipeline
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    
     steps:
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Checkout Code
         uses: actions/checkout@v3
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.8'
-
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
