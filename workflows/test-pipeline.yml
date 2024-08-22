@@ -1,0 +1,44 @@
+# .github/workflows/test-pipeline.yml
+name: Test Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          npm install -g newman
+
+      - name: Run API Tests
+        run: |
+          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export 
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: newman-report
+          path: ./report.html
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: newman-results
+          path: ./results
