@@ -30,16 +30,4 @@ jobs:
 
       - name: Run API Tests
         run: |
-          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html
-
-      - name: Upload Test Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: newman-report
-          path: ./report.html
-
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: newman-results
-          path: ./results
+          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra
