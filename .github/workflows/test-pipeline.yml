@@ -38,8 +38,8 @@ jobs:
       - name: Check Downloaded Files
         run: |
           ls -l  # List files in the directory
-          cat FastAPI.postman_collection.json
-          cat innovationTests.postman_environment.json
+          head -n 20 FastAPI.postman_collection.json
+          head -n 20 innovationTests.postman_environment.json
 
       - name: Validate JSON Files
         run: |
