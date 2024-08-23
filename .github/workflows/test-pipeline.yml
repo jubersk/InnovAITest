@@ -43,4 +43,4 @@ jobs:
       - name: Run API Tests
         run: |
           set -x  # Enable debugging output
-          newman run FastAPI.postman_collection.json -e innovationTests.postman_environment.json -r htmlextra
+          newman run .\FastAPI.postman_collection.json -e .\innovationTests.postman_environment.json -r htmlextra
