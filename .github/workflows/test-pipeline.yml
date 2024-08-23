@@ -27,13 +27,14 @@ jobs:
           npm install -g newman@5.3.2  # Specify the Newman version
           npm install -g newman-reporter-htmlextra@1.23.0  # Specify the reporter version
 
-      - name: Download Postman Collection
-        run: |
-          curl -L -o FastAPI.postman_collection.json https://github.com/jubersk/InnovAITest/blob/main/FastAPI.postman_collection.json
+	- name: Download Postman Collection
+  	  run: |
+    curl -L -H "Authorization: token ${{ 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 }}" -o FastAPI.postman_collection.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/FastAPI.postman_collection.json
 
-      - name: Download Postman Environment
-        run: |
-          curl -L -o innovationTests.postman_environment.json https://github.com/jubersk/InnovAITest/blob/main/innovationTests.postman_environment.json
+- name: Download Postman Environment
+  run: |
+    curl -L -H "Authorization: token ${{ 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 }}" -o innovationTests.postman_environment.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/innovationTests.postman_environment.json
+     
 
       - name: Run API Tests
         run: |
