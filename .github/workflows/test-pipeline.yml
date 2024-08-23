@@ -20,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Use Node.js 20, as it is now the default
+          node-version: '20'  # Use Node.js 20
 
       - name: Install Dependencies
         run: |
