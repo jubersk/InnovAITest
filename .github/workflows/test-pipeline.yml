@@ -25,7 +25,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install -g newman@5.3.2  # Specify the Newman version
-        
+          npm install -g newman-reporter-htmlextra@1.23.0  # Specify the reporter version
 
       - name: Download Postman Collection
         run: |
