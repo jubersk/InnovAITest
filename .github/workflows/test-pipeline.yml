@@ -29,11 +29,11 @@ jobs:
 
       - name: Download Postman Collection
         run: |
-          curl -L -o FastAPI.postman_collection.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/FastAPI.postman_collection.json
+          curl -L -o FastAPI.postman_collection.json https://github.com/jubersk/InnovAITest/blob/main/FastAPI.postman_collection.json
 
       - name: Download Postman Environment
         run: |
-          curl -L -o innovationTests.postman_environment.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/innovationTests.postman_environment.json
+          curl -L -o innovationTests.postman_environment.json https://github.com/jubersk/InnovAITest/blob/main/innovationTests.postman_environment.json
 
       - name: Run API Tests
         run: |
