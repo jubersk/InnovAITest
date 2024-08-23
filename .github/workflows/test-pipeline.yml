@@ -35,24 +35,19 @@ jobs:
         run: |
           curl -L -H "Authorization: token ${{ secrets.GH_TOKEN }}" -o innovationTests.postman_environment.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/innovationTests.postman_environment.json
 
-
       - name: Check Downloaded Files
         run: |
           ls -l  # List files in the directory
           head -n 20 FastAPI.postman_collection.json
           head -n 20 innovationTests.postman_environment.json
 
- 
-
-     - name: Run API Tests
-  	run: |
-    	set -x  # Enable debugging output
-    	newman run FastAPI.postman_collection.json -e innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose
-
+      - name: Run API Tests
+        run: |
+          set -x  # Enable debugging output
+          newman run FastAPI.postman_collection.json -e innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
         with:
           name: newman-report
           path: ./report.html
-
