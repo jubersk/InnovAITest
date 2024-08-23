@@ -29,11 +29,11 @@ jobs:
 
       - name: Download Postman Collection
         run: |
-          curl -L -H "Authorization: token ${{ secrets.GH_TOKEN }}" -o FastAPI.postman_collection.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/FastAPI.postman_collection.json
+          curl -L -H "Authorization: token ${{ Secrets.GH_TOKEN }}" -o FastAPI.postman_collection.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/FastAPI.postman_collection.json
 
       - name: Download Postman Environment
         run: |
-          curl -L -H "Authorization: token ${{ secrets.GH_TOKEN }}" -o innovationTests.postman_environment.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/innovationTests.postman_environment.json
+          curl -L -H "Authorization: token ${{ Secrets.GH_TOKEN }}" -o innovationTests.postman_environment.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/innovationTests.postman_environment.json
 
       - name: Check Downloaded Files
         run: |
