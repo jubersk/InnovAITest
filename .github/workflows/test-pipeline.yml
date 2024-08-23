@@ -35,6 +35,11 @@ jobs:
         run: |
           curl -L -H "Authorization: token ${{ secrets.GH_TOKEN }}" -o innovationTests.postman_environment.json https://raw.githubusercontent.com/jubersk/InnovAITest/main/innovationTests.postman_environment.json
 
+      - name: Check Downloaded Files
+        run: |
+          cat FastAPI.postman_collection.json
+          cat innovationTests.postman_environment.json
+
       - name: Run API Tests
         run: |
           set -x  # Enable debugging output
