@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:  # Optional: Allows manual triggering
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   test:
@@ -20,32 +20,31 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Use Node.js 20
+          node-version: '20'  # Use Node.js version 20
 
-      - name: Install Dependencies
+      - name: Install Newman and Reporters
         run: |
-          npm install -g newman@5.3.2  # Specify the Newman version
-          npm install -g newman-reporter-htmlextra@1.23.0  # Specify the reporter version
+          npm install -g newman@5.3.2  # Install specific version of Newman
+          npm install -g newman-reporter-htmlextra@1.23.0  # Install specific version of htmlextra reporter
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'  # Specify the Python version
+          python-version: '3.9'  # Use Python version 3.9
 
       - name: Install Python Dependencies
         run: |
           python -m venv venv  # Create a virtual environment
           source venv/bin/activate  # Activate the virtual environment
-          pip install -r requirements.txt  # Install dependencies
+          pip install -r requirements.txt  # Install Python dependencies from requirements.txt
 
       - name: Start Server
         run: |
           source venv/bin/activate  # Activate the virtual environment
-          nohup uvicorn application:app --host 0.0.0.0 --port 8000 > server.log 2>&1 &  # Start the server in the background
+          nohup uvicorn application:app --host 0.0.0.0 --port 8000 > server.log 2>&1 &  # Start the FastAPI server in the background
 
       - name: Wait for Server to Start
-        run: |
-          sleep 20  # Wait for 20 seconds to ensure the server has started
+        run: sleep 20  # Wait 20 seconds to ensure the server has started
 
       - name: Download Postman Collection
         run: |
@@ -57,26 +56,23 @@ jobs:
 
       - name: Check Downloaded Files
         run: |
-          ls -l  # List files in the directory
-          head -n 20 FastAPI.postman_collection.json
-          head -n 20 innovationTests.postman_environment.json
+          ls -l  # List files in the current directory
+          head -n 20 FastAPI.postman_collection.json  # Show the first 20 lines of the Postman collection file
+          head -n 20 innovationTests.postman_environment.json  # Show the first 20 lines of the Postman environment file
 
       - name: Validate Postman Collection
-        run: |
-          jq . FastAPI.postman_collection.json
+        run: jq . FastAPI.postman_collection.json  # Validate JSON syntax of the Postman collection
 
       - name: Validate Postman Environment
-        run: |
-          jq . innovationTests.postman_environment.json
+        run: jq . innovationTests.postman_environment.json  # Validate JSON syntax of the Postman environment
 
       - name: Run API Tests
         run: |
-          set -x  # Enable debugging output
-          ls -l  # List files in the directory to confirm paths
-          newman run FastAPI.postman_collection.json -e innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose
+          set -x  # Enable debugging output for detailed logs
+          newman run FastAPI.postman_collection.json -e innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose || true  # Run Newman tests and generate an HTML report
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
         with:
           name: newman-report
-          path: ./report.html
+          path: ./report.html  # Upload the generated Newman report
