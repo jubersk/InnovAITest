@@ -41,7 +41,7 @@ jobs:
       - name: Start Server
         run: |
           source venv/bin/activate  # Activate the virtual environment
-          nohup uvicorn application:app --host 0.0.0.0 --port 8000 > server.log 2>&1 &  # Start the FastAPI server in the background
+          nohup fastapi dev application.py > server.log 2>&1 &  # Start the FastAPI server in the background
 
       - name: Wait for Server to Start and Check Availability
         run: |
