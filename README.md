@@ -86,23 +86,10 @@ Endpoint: `POST /model/{model_id}/versions/{version_id}/infer`
 
 This repository includes a CI/CD pipeline for testing the API endpoints of the server exposed at `https://github.com/openinnovationai/recruiting-qa-challenge`. The pipeline runs API tests, generates reports, and uploads artifacts.
 
-## How to Run Tests
-
-1. **Pre-requisites:**
-   - Ensure Docker is installed.
-   - Ensure Python and Node.js are set up.
-   
-   
-##Build the Docker image from the Dockerfile:
-
-docker build -t my-fastapi-app .
-	
-##Run the Docker Container:
-Run the Docker container to execute the tests. Ensure you mount any necessary volumes for accessing the Postman files and saving the report:
-docker run --rm -v $(pwd)/newman-reports:/app my-fastapi-app
-
-
-2. **Run Locally:**
+1. **Run Locally:**
    ```sh
    npm install -g newman
    newman run .\FastAPI.postman_collection.json -e .\innovationTests.postman_environment.json -r htmlextra
+
+2. **Run workflow from github:** - There is an error tried multiple ways but it seems issue with the server or not sure. Manual run is working fine.
+   https://github.com/jubersk/InnovAITest/actions/workflows/test-pipeline.yml
