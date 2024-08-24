@@ -43,8 +43,10 @@ jobs:
           source venv/bin/activate  # Activate the virtual environment
           nohup uvicorn application:app --host 0.0.0.0 --port 8000 > server.log 2>&1 &  # Start the FastAPI server in the background
 
-      - name: Wait for Server to Start
-        run: sleep 20  # Wait 20 seconds to ensure the server has started
+      - name: Wait for Server to Start and Check Availability
+        run: |
+          sleep 20  # Wait 20 seconds to ensure the server has started
+          curl --retry 5 --retry-connrefused --retry-delay 5 http://localhost:8000  # Check if the server is responding
 
       - name: Download Postman Collection
         run: |
@@ -68,8 +70,8 @@ jobs:
 
       - name: Run API Tests
         run: |
-          set -x  # Enable debugging output for detailed logs
-          newman run FastAPI.postman_collection.json -e innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose || true  # Run Newman tests and generate an HTML report
+          set -x  # Enable debugging output
+          newman run FastAPI.postman_collection.json -e innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose || true
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
