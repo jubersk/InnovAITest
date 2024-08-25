@@ -74,9 +74,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{127.0.0.1}}/models",
+							"raw": "{{h}}/models",
 							"host": [
-								"{{127.0.0.1}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"models"
@@ -104,9 +104,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models",
+									"raw": "{{baseUrl}}/models",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models"
@@ -145,9 +145,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models",
+									"raw": "{{baseUrl}}/models",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models"
@@ -230,9 +230,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{127.0.0.1}}/models",
+							"raw": "{{baseUrl}}/models",
 							"host": [
-								"{{127.0.0.1}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"models"
@@ -260,9 +260,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models",
+									"raw": "{{baseUrl}}/models",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models"
@@ -301,9 +301,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models",
+									"raw": "{{baseUrl}}/models",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models"
@@ -397,9 +397,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{127.0.0.1}}/models",
+							"raw": "{{baseUrl}}/models",
 							"host": [
-								"{{127.0.0.1}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"models"
@@ -427,9 +427,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models",
+									"raw": "{{baseUrl}}/models",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models"
@@ -468,9 +468,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models",
+									"raw": "{{baseUrl}}/models",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models"
@@ -567,9 +567,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{127.0.0.1}}/models",
+							"raw": "{{baseUrl}}/models",
 							"host": [
-								"{{127.0.0.1}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"models"
@@ -588,9 +588,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{127.0.0.1}}/models",
+									"raw": "{{baseUrl}}/models",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models"
@@ -691,9 +691,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{127.0.0.1}}/models/{{createdModelId}}/versions",
+							"raw": "{{baseUrl}}/models/{{createdModelId}}/versions",
 							"host": [
-								"{{127.0.0.1}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"models",
@@ -723,9 +723,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id/versions",
+									"raw": "{{baseUrl}}/models/:model_id/versions",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
@@ -773,9 +773,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id/versions",
+									"raw": "{{baseUrl}}/models/:model_id/versions",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
@@ -875,9 +875,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{127.0.0.1}}/models/{{versionId}}/versions",
+							"raw": "{{baseUrl}}/models/{{versionId}}/versions",
 							"host": [
-								"{{127.0.0.1}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"models",
@@ -898,9 +898,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id/versions",
+									"raw": "{{baseUrl}}/models/:model_id/versions",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
@@ -939,9 +939,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id/versions",
+									"raw": "{{baseUrl}}/models/:model_id/versions",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
@@ -1020,9 +1020,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{127.0.0.1}}/models/{{createdModelId}}/versions/{{validModelVersionId}}/infer",
+							"raw": "{{baseUrl}}/models/{{createdModelId}}/versions/{{validModelVersionId}}/infer",
 							"host": [
-								"{{127.0.0.1}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"models",
@@ -1054,9 +1054,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id/versions/:version_id/infer",
+									"raw": "{{baseUrl}}/models/:model_id/versions/:version_id/infer",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
@@ -1111,9 +1111,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id/versions/:version_id/infer",
+									"raw": "{{baseUrl}}/models/:model_id/versions/:version_id/infer",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
@@ -1198,9 +1198,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{127.0.0.1}}/models/{{createdModelId}}/versions/{{validModelVersionId}}",
+							"raw": "{{baseUrl}}/models/{{createdModelId}}/versions/{{validModelVersionId}}",
 							"host": [
-								"{{127.0.0.1}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"models",
@@ -1222,9 +1222,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id/versions/:version_id",
+									"raw": "{{baseUrl}}/models/:model_id/versions/:version_id",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
@@ -1269,9 +1269,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id/versions/:version_id",
+									"raw": "{{baseUrl}}/models/:model_id/versions/:version_id",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
@@ -1354,9 +1354,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{127.0.0.1}}/models/{{validModelId}}",
+							"raw": "{{baseUrl}}/models/{{validModelId}}",
 							"host": [
-								"{{127.0.0.1}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"models",
@@ -1376,9 +1376,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id",
+									"raw": "{{baseUrl}}/models/:model_id",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
@@ -1416,9 +1416,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{127.0.0.1}}/models/:model_id",
+									"raw": "{{baseUrl}}/models/:model_id",
 									"host": [
-										"{{127.0.0.1}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"models",
