@@ -53,9 +53,9 @@ jobs:
 
       - name: Verify Server is Running on Correct Port
         run: |
-          netstat -tuln | grep 8000  # Check if port 8000 is in use
+          netstat -tuln | grep 8080  # Check if port 8080 is in use
           # or alternatively
-          lsof -i :8000
+          lsof -i :8080
 
       - name: Download Postman Collection
         run: |
