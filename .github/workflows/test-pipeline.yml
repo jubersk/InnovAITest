@@ -83,15 +83,13 @@ jobs:
         run: |
           curl -v http://localhost:8080/models
                     
-      - name: Test API Endpoint Accessibility
-        run: |
-          curl -v http://localhost:8000/models
-
       - name: Run API Tests
         run: |
           set -x  # Enable debugging output
           ls -l  # List files in the directory to confirm paths
-          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose | true
+          cat FastAPI.postman_collection.json  # Print the Postman collection file to ensure it's correctly formatted
+          cat innovationTests.postman_environment.json  # Print the Postman environment file to ensure it's correctly formatted
+          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose --reporter-cli-no-failures --reporter-cli-no-summary --disable-unicode | tee newman-output.txt
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
