@@ -40,8 +40,8 @@ jobs:
 
       - name: Start Server
         run: |
-          source venv/bin/activate  # Activate the virtual environment
-          echo "Starting FastAPI server on port 8000..."  # Add a console log
+          source venv/bin/activate  # Activate 8080 virtual environment
+          echo "Starting FastAPI server on port 8080..."  # Add a console log
           nohup fastapi dev application.py > server.log 2>&1 &  # Start the server in the background
           echo "Server started, waiting for it to be ready..."  # Another console log
 
