@@ -40,9 +40,9 @@ jobs:
 
       - name: Start Server
         run: |
-          source venv/bin/activate  # Activate 8080 virtual environment
+          source venv/bin/activate  # Activate virtual environment
           echo "Starting FastAPI server on port 8080..."  # Add a console log
-          nohup fastapi dev application.py > server.log 2>&1 &  # Start the server in the background
+          nohup uvicorn application:app --host 0.0.0.0 --port 8080 > server.log 2>&1 &  # Start the server in the background using Uvicorn
           echo "Server started, waiting for it to be ready..."  # Another console log
 
       - name: Wait for Server to Start
@@ -83,7 +83,7 @@ jobs:
         run: |
           set -x  # Enable debugging output
           ls -l  # List files in the directory to confirm paths
-          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose | true
+          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
