@@ -40,17 +40,17 @@ jobs:
 
       - name: Start Server
         run: |
-          source venv/bin/activate  # Activate virtual environment
-          echo "Starting FastAPI server on port 8080..."  # Add a console log
-          nohup uvicorn application:app --host 0.0.0.0 --port 8080 > server.log 2>&1 &  # Start the server in the background using Uvicorn
-          echo "Server started, waiting for it to be ready..."  # Another console log
+          source venv/bin/activate  # Activate the virtual environment
+          echo "Starting FastAPI server on port 8080..."  # Log message to indicate the server is starting
+          nohup uvicorn application:app --host 127.0.0.1 --port 8080 > server.log 2>&1 &  # Start the server in the background using Uvicorn
+          echo "Server started, waiting for it to be ready..."  # Log message after starting the server
 
       - name: Wait for Server to Start
         run: sleep 20  # Wait for 20 seconds to ensure the server has started
 
       - name: Check Server Log
         run: cat server.log  # Output server log to console
-
+ 
       - name: Verify Server is Running on Correct Port
         run: |
           netstat -tuln | grep 8080  # Check if port 8080 is in use
