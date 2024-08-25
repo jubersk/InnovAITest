@@ -70,6 +70,7 @@ jobs:
           ls -l  # List files in the directory
           head -n 20 FastAPI.postman_collection.json
           head -n 20 innovationTests.postman_environment.json
+	  RUN test -f ./FastAPI.postman_collection.json && echo "File exists" || echo "File does not exist"
 
       - name: Validate Postman Collection
         run: |
@@ -83,7 +84,7 @@ jobs:
         run: |
           set -x  # Enable debugging output
           ls -l  # List files in the directory to confirm paths
-          newman run FastAPI.postman_collection.json -e innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html
+          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
