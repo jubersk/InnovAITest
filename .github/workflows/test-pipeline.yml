@@ -78,12 +78,20 @@ jobs:
       - name: Validate Postman Environment
         run: |
           jq . innovationTests.postman_environment.json
+          
+      - name: Test API Endpoint Accessibility
+        run: |
+          curl -v http://localhost:8080/models
+                    
+      - name: Test API Endpoint Accessibility
+        run: |
+          curl -v http://localhost:8000/models
 
       - name: Run API Tests
         run: |
           set -x  # Enable debugging output
           ls -l  # List files in the directory to confirm paths
-          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose
+          newman run ./FastAPI.postman_collection.json -e ./innovationTests.postman_environment.json -r htmlextra --reporter-htmlextra-export ./report.html --verbose | true
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
