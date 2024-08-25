@@ -91,5 +91,12 @@ This repository includes a CI/CD pipeline for testing the API endpoints of the s
    npm install -g newman
    newman run .\FastAPI.postman_collection.json -e .\innovationTests.postman_environment.json -r htmlextra
 
-2. **Run workflow from github:** - There is an error tried multiple ways but it seems issue with the server or not sure. Manual run is working fine.
+2. **Run workflow from github:** 
+### Below pipeline will be executed on every build and also has option to run manually
    https://github.com/jubersk/InnovAITest/actions/workflows/test-pipeline.yml
+   
+3. HTML Report can be found with each by name "newman-report/report.html"
+
+
+   
+   
