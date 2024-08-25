@@ -70,7 +70,7 @@ jobs:
           ls -l  # List files in the directory
           head -n 20 FastAPI.postman_collection.json
           head -n 20 innovationTests.postman_environment.json
-	      RUN test -f ./FastAPI.postman_collection.json && echo "File exists" || echo "File does not exist"
+	      
 
       - name: Validate Postman Collection
         run: |
